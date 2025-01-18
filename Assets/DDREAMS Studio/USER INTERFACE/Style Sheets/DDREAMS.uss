@@ -1,0 +1,9 @@
+.Credits {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    font-size: 180%;
+    color: rgb(254, 238, 212);
+    -unity-font-definition: url("project://database/Assets/DDREAMS%20Studio/CORE/Fonts/Google/Ubuntu/Ubuntu%20Light%20SDF.asset?fileID=11400000&guid=31a9a2df0506249b3a9a3173184be317&type=2#Ubuntu Light SDF");
+    letter-spacing: 8px;
+}
