@@ -19,12 +19,17 @@ namespace DDREAMS.CodingTrainTrips
         private Vector3 _Rotation = new(60.0f, 60.0f, 60.0f);
 
 
+        private const string ERROR__NO_PARTICLE_PREFAB = "No Prefab found for the particle. Please add a particle Prefab.";
+
+
         private Particle _particle;
         private GameObject _particlePrebaf;
 
 
         private void Start()
         {
+            if (!ReferenceFound()) return;
+
             _particle = new Particle();
 
             InitialiseParticle();
@@ -58,6 +63,21 @@ namespace DDREAMS.CodingTrainTrips
             _particlePrebaf.name = "Single Particle";
             _particlePrebaf.transform.position = _particle.GetPosition();
             _particlePrebaf.transform.parent = transform;
+        }
+
+        private bool ReferenceFound()
+        {
+            bool referenceFound = true;
+
+            if (_ParticlePrefab == null)
+            {
+                Debug.LogWarning(ERROR__NO_PARTICLE_PREFAB);
+                referenceFound = false;
+            }
+
+            if (!referenceFound) enabled = false;
+
+            return referenceFound;
         }
     }
 }
