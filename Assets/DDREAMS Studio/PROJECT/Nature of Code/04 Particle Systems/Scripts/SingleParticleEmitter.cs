@@ -10,6 +10,9 @@ namespace DDREAMS.CodingTrainTrips
         [SerializeField]
         private Vector3 _Force = Vector3.down;
 
+        [SerializeField]
+        private Vector3 _Rotation = Vector3.down;
+
 
         private Particle _particle;
         private GameObject _particlePrebaf;
@@ -20,12 +23,8 @@ namespace DDREAMS.CodingTrainTrips
             _particle = new Particle();
 
             InitialiseParticle();
-
-            _particlePrebaf = Instantiate(_ParticlePrebaf);
-            _particlePrebaf.transform.position = _particle.GetPosition();
-            _particlePrebaf.transform.parent = transform;
+            InstantiateParticlePrefab();
         }
-
 
         private void FixedUpdate()
         {
@@ -33,14 +32,27 @@ namespace DDREAMS.CodingTrainTrips
             _particle.Update();
 
             _particlePrebaf.transform.position = _particle.GetPosition();
+            _particlePrebaf.transform.Rotate(Time.fixedDeltaTime * _particle.GetRotation());
 
             if (_particle.IsDead()) InitialiseParticle();
         }
 
+
         private void InitialiseParticle()
         {
             _particle.Initialise();
-            _particle.SetVelocity(new Vector3(Random.Range(-0.01f, 0.01f), Random.Range(0.001f, 0.01f), 0.0f));
+            _particle.SetPosition(transform.position);
+            _particle.SetRotation(_Rotation);
+            _particle.SetVelocity(new Vector3(Random.Range(-0.01f, 0.01f), Random.Range(0.0025f, 0.025f), 0.0f));
+        }
+
+        private void InstantiateParticlePrefab()
+        {
+            _particlePrebaf = Instantiate(_ParticlePrebaf);
+
+            _particlePrebaf.name = "Single Particle";
+            _particlePrebaf.transform.position = _particle.GetPosition();
+            _particlePrebaf.transform.parent = transform;
         }
     }
 }

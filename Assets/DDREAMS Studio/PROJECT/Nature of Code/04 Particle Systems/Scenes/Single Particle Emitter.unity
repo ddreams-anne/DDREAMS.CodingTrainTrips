@@ -252,7 +252,7 @@ GameObject:
   m_Layer: 0
   m_Name: PARTICLE EMITTER
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
@@ -265,7 +265,7 @@ Transform:
   m_GameObject: {fileID: 207287053}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -283,8 +283,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56fa55eb5f44f4dc4bb4333385952413, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ParticlePrebaf: {fileID: 6029349053173877107, guid: 069e0a1ae5145481ebb8082f0212bac2, type: 3}
-  _Force: {x: 0, y: -0.0001, z: 0}
+  _ParticlePrebaf: {fileID: 7376195308617494503, guid: 265be916d9f3d40c7bff6d1252ec176b, type: 3}
+  _Force: {x: 0, y: -0.0005, z: 0}
+  _Rotation: {x: 60, y: 60, z: 60}
 --- !u!1 &264399302
 GameObject:
   m_ObjectHideFlags: 0
