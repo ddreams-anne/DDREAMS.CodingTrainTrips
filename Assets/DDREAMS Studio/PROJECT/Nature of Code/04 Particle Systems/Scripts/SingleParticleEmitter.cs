@@ -4,14 +4,19 @@ namespace DDREAMS.CodingTrainTrips
 {
     public class SingleParticleEmitter : MonoBehaviour
     {
+        [Header("Particle Settings")]
         [SerializeField]
+        [Tooltip("The Prefab that will be used as a particle.")]
         private GameObject _ParticlePrefab;
 
+        [Header("Transform Settings")]
         [SerializeField]
+        [Tooltip("A force that will alter the path of the particle.")]
         private Vector3 _Force = Vector3.down;
 
         [SerializeField]
-        private Vector3 _Rotation = Vector3.down;
+        [Tooltip("The rotation speed of the particle per axis in eulerAngles per second.")]
+        private Vector3 _Rotation = new(60.0f, 60.0f, 60.0f);
 
 
         private Particle _particle;
