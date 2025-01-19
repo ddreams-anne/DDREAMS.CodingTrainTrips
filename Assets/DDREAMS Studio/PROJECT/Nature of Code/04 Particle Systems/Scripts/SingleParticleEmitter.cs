@@ -5,7 +5,7 @@ namespace DDREAMS.CodingTrainTrips
     public class SingleParticleEmitter : MonoBehaviour
     {
         [SerializeField]
-        private GameObject _ParticlePrebaf;
+        private GameObject _ParticlePrefab;
 
         [SerializeField]
         private Vector3 _Force = Vector3.down;
@@ -48,7 +48,7 @@ namespace DDREAMS.CodingTrainTrips
 
         private void InstantiateParticlePrefab()
         {
-            _particlePrebaf = Instantiate(_ParticlePrebaf);
+            _particlePrebaf = Instantiate(_ParticlePrefab);
 
             _particlePrebaf.name = "Single Particle";
             _particlePrebaf.transform.position = _particle.GetPosition();
