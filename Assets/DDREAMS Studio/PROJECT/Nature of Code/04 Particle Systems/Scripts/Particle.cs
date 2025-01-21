@@ -8,37 +8,18 @@ namespace DDREAMS.CodingTrainTrips
         public Vector3 Velocity { get; private set; }
         public Vector3 Acceleration { get; private set; }
         public Vector3 Rotation { get; private set; }
+        public Vector3 Force { get; private set; }
         public float Lifespan { get; private set; }
 
+
+        public void ApplyForce()
+        {
+            Acceleration += Force;
+        }
 
         public void ApplyForce(Vector3 force)
         {
             Acceleration += force;
-        }
-
-        public Vector3 GetAcceleration()
-        {
-            return Acceleration;
-        }
-
-        public float GetLifespan()
-        {
-            return Lifespan;
-        }
-
-        public Vector3 GetPosition()
-        {
-            return Position;
-        }
-
-        public Vector3 GetRotation()
-        {
-            return Rotation;
-        }
-
-        public Vector3 GetVelocity()
-        {
-            return Velocity;
         }
 
         public void Initialise()
@@ -67,6 +48,11 @@ namespace DDREAMS.CodingTrainTrips
         public void SetAcceleration(Vector3 acceleration)
         {
             Acceleration = acceleration;
+        }
+
+        public void SetForce(Vector3 force)
+        {
+            Force = force;
         }
 
         public void SetLifespan(float lifespan)

@@ -38,11 +38,11 @@ namespace DDREAMS.CodingTrainTrips
 
         private void FixedUpdate()
         {
-            _particle.ApplyForce(Time.fixedDeltaTime * _Force);
+            _particle.ApplyForce(Time.fixedDeltaTime * _particle.Force);
             _particle.Update();
 
-            _particlePrebaf.transform.position = _particle.GetPosition();
-            _particlePrebaf.transform.Rotate(Time.fixedDeltaTime * _particle.GetRotation());
+            _particlePrebaf.transform.position = _particle.Position;
+            _particlePrebaf.transform.Rotate(Time.fixedDeltaTime * _particle.Rotation);
 
             if (_particle.IsDead()) InitialiseParticle();
         }
@@ -61,7 +61,7 @@ namespace DDREAMS.CodingTrainTrips
             _particlePrebaf = Instantiate(_ParticlePrefab);
 
             _particlePrebaf.name = "Single Particle";
-            _particlePrebaf.transform.position = _particle.GetPosition();
+            _particlePrebaf.transform.position = _particle.Position;
             _particlePrebaf.transform.parent = transform;
         }
 
